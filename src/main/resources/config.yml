@@ -1,0 +1,39 @@
+# Включение интеграции DonationAlerts и OAuth-данные приложения.
+donationalerts:
+  # Включает получение новых донатов DonationAlerts.
+  enabled: true
+  # Данные OAuth-приложения DonationAlerts. Никогда не публикуйте client-secret.
+  client-id: ""
+  client-secret: ""
+  # Access Token либо пара access/refresh token, выданные DonationAlerts.
+  access-token: ""
+  refresh-token: ""
+  # Пауза перед повторным подключением после ошибки.
+  reconnect-delay-seconds: 10
+  # Используется, когда название текущего сбора временно недоступно.
+  fallback-goal-name: "Сбор"
+
+# Discord-бот работает в этом же Minecraft-плагине.
+discord:
+  # Включает встроенного Discord-бота.
+  enabled: true
+  # Токен Discord Bot. Никогда не публикуйте его.
+  bot-token: ""
+  # ID целевого текстового канала Discord.
+  channel-id: ""
+
+# MiniMessage для Minecraft и Markdown для Discord.
+messages:
+  # MiniMessage для общего чата Minecraft.
+  minecraft: "<gold>{username}</gold> задонатил <green>{amount}</green> <gray>на</gray> <aqua>{goal}</aqua>"
+  # Markdown-сообщение в настроенный Discord-канал.
+  discord: "**{username}** задонатил **{amount}** на **{goal}**"
+
+# Значение после кода валюты добавляется к сумме без пробела.
+currency-format:
+  RUB: "₽"
+  UAH: "₴"
+  USD: "$"
+  EUR: "€"
+  GBP: "£"
+  PLN: "zł"

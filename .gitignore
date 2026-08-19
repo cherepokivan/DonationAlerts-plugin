@@ -1,4 +1,5 @@
-config.yml
+/config.yml
+!/src/main/resources/config.yml
 target/
 .idea/
 *.iml
