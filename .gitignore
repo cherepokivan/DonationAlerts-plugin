@@ -1,0 +1,6 @@
+config.yml
+target/
+.idea/
+*.iml
+.mvn/wrapper/apache-maven-*/
+.mvn/wrapper/apache-maven-*-bin.zip

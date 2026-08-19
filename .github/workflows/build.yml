@@ -1,0 +1,25 @@
+name: Build DonationAlerts
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Build plugin
+        run: ./mvnw clean package
+      - name: Upload plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: DonationAlerts
+          path: target/DonationAlerts.jar
+          if-no-files-found: error

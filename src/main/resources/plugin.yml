@@ -1,0 +1,15 @@
+name: DonationAlerts
+version: 1.0.0
+main: ru.cherepokivan.donationalerts.DonationAlertsPlugin
+api-version: "26.2"
+author: cherepokivan
+description: DonationAlerts integration with Minecraft and Discord
+commands:
+  donationalerts:
+    description: Управление DonationAlerts
+    usage: /donationalerts reload
+    permission: donationalerts.admin
+permissions:
+  donationalerts.admin:
+    description: Разрешает перезагрузку DonationAlerts
+    default: op

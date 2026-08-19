@@ -1,0 +1,23 @@
+# Скопируйте этот файл в plugins/DonationAlerts/config.yml или дайте плагину создать config.yml при первом запуске.
+donationalerts:
+  enabled: true
+  client-id: ""
+  client-secret: ""
+  access-token: ""
+  refresh-token: ""
+  reconnect-delay-seconds: 10
+  fallback-goal-name: "Сбор"
+discord:
+  enabled: true
+  bot-token: ""
+  channel-id: ""
+messages:
+  minecraft: "<gold>{username}</gold> задонатил <green>{amount}</green> <gray>на</gray> <aqua>{goal}</aqua>"
+  discord: "**{username}** задонатил **{amount}** на **{goal}**"
+currency-format:
+  RUB: "₽"
+  UAH: "₴"
+  USD: "$"
+  EUR: "€"
+  GBP: "£"
+  PLN: "zł"
