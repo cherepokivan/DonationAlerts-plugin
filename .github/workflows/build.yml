@@ -16,7 +16,10 @@ jobs:
           java-version: '25'
           cache: maven
       - name: Build plugin
+        run: |
+          chmod +x mvnw
         run: ./mvnw clean package
+          ./mvnw clean package
       - name: Upload plugin JAR
         uses: actions/upload-artifact@v4
         with:
