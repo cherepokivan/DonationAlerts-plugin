@@ -47,5 +47,5 @@
 
 ## Получение токена
 
-Для получения токена в исходном коде есть скрипт: `get_donationalerts_tokens.py`
+Для получения токена в исходном коде есть скрипт: `get_donationalerts_tokens.py`.
 Откройте скрипт с помощью редактора и вставьте полученные на сайте https://www.donationalerts.com/application/clients `CLIENT_ID = "paste"` и `CLIENT_SECRET = "paste"`, и запустите скрипт.
