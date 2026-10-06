@@ -1,4 +1,4 @@
-name: Build DonationAlerts Fabric
+name: Build DonationAlerts  Fabric
 on:
   push:
     branches: [main]
