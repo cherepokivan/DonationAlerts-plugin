@@ -44,3 +44,8 @@
 ## Команда
 
 `/donationalerts reload` — перечитывает `config/DonationAlerts/config.yml` и перезапускает Discord/DonationAlerts-подключения. Нужен уровень доступа оператора сервера (permission level 4).
+
+## Получение токена
+
+Для получения токена в исходном коде есть скрипт: `get_donationalerts_tokens.py`
+Откройте скрипт с помощью редактора и вставьте полученные на сайте https://www.donationalerts.com/application/clients `CLIENT_ID = "paste"` и `CLIENT_SECRET = "paste"`, и запустите скрипт.
