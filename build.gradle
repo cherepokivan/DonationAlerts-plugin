@@ -1,0 +1,56 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'com.gradleup.shadow' version '9.2.2'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base { archivesName = project.archives_base_name }
+
+repositories { mavenCentral() }
+
+configurations { shade }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    implementation 'net.dv8tion:JDA:5.6.1'
+    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'org.yaml:snakeyaml:2.5'
+    shade 'net.dv8tion:JDA:5.6.1'
+    shade 'com.google.code.gson:gson:2.13.2'
+    shade 'org.yaml:snakeyaml:2.5'
+}
+
+tasks.shadowJar {
+    configurations = [project.configurations.shade]
+    archiveClassifier = 'libraries'
+    relocate 'net.dv8tion', 'ru.cherepokivan.donationalerts.libs.jda'
+    relocate 'com.google.gson', 'ru.cherepokivan.donationalerts.libs.gson'
+    relocate 'org.yaml.snakeyaml', 'ru.cherepokivan.donationalerts.libs.snakeyaml'
+}
+
+tasks.jar {
+    dependsOn tasks.shadowJar
+    from { zipTree(tasks.shadowJar.archiveFile) }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: inputs.properties.version }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
+}

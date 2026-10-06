@@ -1,7 +1,12 @@
 /config.yml
+/donationalerts_tokens.json
 !/src/main/resources/config.yml
 target/
+.gradle/
+build/
 .idea/
 *.iml
 .mvn/wrapper/apache-maven-*/
 .mvn/wrapper/apache-maven-*-bin.zip
+.mvn/
+__pycache__/

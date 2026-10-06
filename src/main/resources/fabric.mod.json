@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "donationalerts",
+  "version": "${version}",
+  "name": "DonationAlerts",
+  "description": "DonationAlerts integration with Minecraft and Discord",
+  "authors": ["cherepokivan"],
+  "environment": "server",
+  "entrypoints": {
+    "main": ["ru.cherepokivan.donationalerts.DonationAlertsMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "minecraft": "26.2",
+    "java": ">=25"
+  }
+}

@@ -1,4 +1,4 @@
-name: Build DonationAlerts
+name: Build DonationAlerts Fabric
 on:
   push:
     branches: [main]
@@ -14,16 +14,18 @@ jobs:
         with:
           distribution: temurin
           java-version: '25'
-          cache: maven
-      - name: Build plugin
+          cache: gradle
+      - name: Build Fabric mod
         run: |
-          chmod +x mvnw
-          ./mvnw clean package
-      - name: Verify embedded configuration
-        run: jar tf target/DonationAlerts.jar | grep -Fx 'config.yml'
-      - name: Upload plugin JAR
+          chmod +x gradlew
+          ./gradlew clean build
+      - name: Verify Fabric mod contents
+        run: |
+          jar tf build/libs/DonationAlerts-Fabric-1.0.0.jar | grep -Fx 'fabric.mod.json'
+          jar tf build/libs/DonationAlerts-Fabric-1.0.0.jar | grep -Fx 'config.yml'
+      - name: Upload Fabric mod
         uses: actions/upload-artifact@v4
         with:
-          name: DonationAlerts
-          path: target/DonationAlerts.jar
+          name: DonationAlerts-Fabric
+          path: build/libs/DonationAlerts-Fabric-1.0.0.jar
           if-no-files-found: error
