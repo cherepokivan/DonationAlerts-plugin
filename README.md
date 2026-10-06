@@ -1,4 +1,4 @@
-# DonationAlerts Fabric
+# DonationAlerts Fabric  
 
 Серверный мод Fabric для Minecraft 26.2. Он получает новые донаты DonationAlerts в реальном времени и публикует их одновременно в Minecraft-чат и указанный текстовый канал Discord. Discord-бот работает внутри мода: отдельные Python, Node.js, VPS или процессы не нужны.
 
